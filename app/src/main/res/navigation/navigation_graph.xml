@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/navLoginFragment">
+
+    <fragment
+        android:id="@+id/navLoginFragment"
+        android:name="br.com.myapplication.view.LoginFragment"
+        android:label="NavLoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_produtoListFragment"
+            app:destination="@id/navProdutoListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navProdutoListFragment"
+        android:name="br.com.myapplication.view.ProdutoListFragment"
+        android:label="NavProdutoListFragment"
+        tools:layout="@layout/fragment_produto_list">
+        <action
+            android:id="@+id/action_produtoListFragment_to_produtodetailsFragment"
+            app:destination="@id/navProdutodetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navProdutodetailsFragment"
+        android:name="br.com.myapplication.view.ProdutoDetalheFragment"
+        android:label="NavProdutodetailsFragment"
+        tools:layout="@layout/fragment_produto_detalhe" >
+        <action
+            android:id="@+id/action_navProdutodetailsFragment_to_navProdutoListFragment"
+            app:destination="@id/navProdutoListFragment" />
+        <argument
+            android:name="Message_sent"
+            app:argType="br.com.myapplication.model.Enterprise" />
+    </fragment>
+</navigation>
